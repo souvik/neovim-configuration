@@ -44,4 +44,39 @@ return packer.startup(function(use)
 
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  -- Colorscheme
+  use 'morhetz/gruvbox'
+
+  -- Auto-completion plugins
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lua'
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets' -- A bunch of colorschemes you can try out
+
+  -- LSP
+  use 'neovim/nvim-lspconfig' -- enable LSP
+  use 'williamboman/nvim-lsp-installer' -- simple to use language server install
+
+  -- Syntax highlighting
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- Telescope
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+
+  -- Autopairs
+  use 'windwp/nvim-autopairs'
+
+  -- Automatially setup your configuration after cloning packer.nvim
+  -- Put this at the end of all plugins
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 end)

@@ -1,2 +1,8 @@
 require 'settings.options'
 require 'settings.keymaps'
+require 'settings.plugins'
+require 'settings.colorscheme'
+require 'settings.cmp'
+require 'settings.lsp'
+require 'settings.telescope'
+require 'settings.treesitter'
