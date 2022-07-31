@@ -74,6 +74,16 @@ return packer.startup(function(use)
   -- Autopairs
   use 'windwp/nvim-autopairs'
 
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+
+  -- NERDTree
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+
+  -- Bufferline
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use 'moll/vim-bbye'
+
   -- Automatially setup your configuration after cloning packer.nvim
   -- Put this at the end of all plugins
   if PACKER_BOOTSTRAP then
