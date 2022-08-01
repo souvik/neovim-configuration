@@ -64,12 +64,14 @@ return packer.startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig' -- enable LSP
   use 'williamboman/nvim-lsp-installer' -- simple to use language server install
+  use 'jose-elias-alvarez/null-ls.nvim' -- for formatters and linters
 
   -- Syntax highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Autopairs
   use 'windwp/nvim-autopairs'
