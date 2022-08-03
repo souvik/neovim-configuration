@@ -41,6 +41,7 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
+  use 'akinsho/toggleterm.nvim'
 
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
