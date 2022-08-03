@@ -13,6 +13,9 @@ local options = {
   wrap = false,              -- display lines as one long line
   scrolloff = 8,
   sidescrolloff = 8,
+  foldmethod = "indent",
+  listchars = { tab = " ", space = ".", eol = "" },
+  list = true
 }
 
 for k, v in pairs(options) do

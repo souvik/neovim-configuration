@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lua'
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
+  use 'L3MON4D3/LuaSnip' -- snippet engine
   use 'rafamadriz/friendly-snippets' -- A bunch of colorschemes you can try out
 
   -- LSP
