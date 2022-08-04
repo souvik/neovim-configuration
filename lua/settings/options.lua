@@ -14,6 +14,7 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
   foldmethod = "indent",
+  foldlevel = 2,
   listchars = { tab = " ", space = ".", eol = "" },
   list = true
 }

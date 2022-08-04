@@ -7,7 +7,6 @@ local actions = require 'telescope.actions'
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = ' ',
     selection_caret = ' ',
     path_display = { 'smart' },
@@ -85,6 +84,9 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+    buffers = {
+      theme = "ivy"
+    }
   },
   extensions = {
     -- Your extension configuration goes here:
