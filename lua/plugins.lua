@@ -6,9 +6,13 @@ function M.setup()
 
   -- packer.nvim configuration
   local conf = {
+    profile = {
+      enable = true,
+      threshold = 5 -- the amount in ms that a plugin load time must be over for it to be included in the profile
+    },
     display = {
       open_fn = function()
-        return require("packer.util").float { border = "rounded" }
+        return require("packer.util").float({ border = "rounded" })
       end,
     },
   }
@@ -80,7 +84,7 @@ function M.setup()
       "neovim/nvim-lspconfig", -- enable LSP
       requires = {
         "williamboman/nvim-lsp-installer", -- simple to use language server install
-	"jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+        "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
       },
       config = function()
         require("config.lsp")
@@ -149,9 +153,21 @@ function M.setup()
     end
   end
 
+  -- Autocommand that reloads neovim whenever you save the plugins.lua file
+  vim.cmd([[
+    augroup packer_user_config
+      autocmd!
+      autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup end
+  ]])
+
   packer_init()
 
-  local packer = require("packer")
+  local status_ok, packer = pcall(require, "packer")
+  if not status_ok then
+    return
+  end
+
   packer.init(conf)
   packer.startup(plugins)
 end
