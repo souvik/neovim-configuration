@@ -70,7 +70,8 @@ keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
 -- Telescope Keymaps
 keymap('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<leader>bl", "<cmd> lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
+keymap("n", "<leader>L", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 
 -- NvimTree keymap
 keymap("n", "<leader>e", "<cmd>lua require('nvim-tree').toggle(true, true)<cr>", opts)

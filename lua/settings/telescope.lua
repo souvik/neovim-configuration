@@ -21,9 +21,6 @@ telescope.setup {
 
         ['<C-c>'] = actions.close,
 
-        ['<Down>'] = actions.move_selection_next,
-        ['<Up>'] = actions.move_selection_previous,
-
         ['<CR>'] = actions.select_default,
         ['<C-x>'] = actions.select_horizontal,
         ['<C-v>'] = actions.select_vertical,
@@ -85,7 +82,12 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     buffers = {
-      theme = "ivy"
+      theme = "ivy",
+      previewer = false
+    },
+    current_buffer_fuzzy_find = {
+      theme = "ivy",
+      previewer = false
     }
   },
   extensions = {
