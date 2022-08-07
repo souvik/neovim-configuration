@@ -49,11 +49,11 @@ function M.setup()
     }
 
     -- Packer can manage itself
-    use "wbthomason/packer.nvim"
+    use { "wbthomason/packer.nvim" }
 
     -- Colorscheme
     use {
-      "morhetz/gruvbox",
+      "ellisonleao/gruvbox.nvim",
       config = function()
         require("config.colorscheme")
       end,
@@ -146,6 +146,15 @@ function M.setup()
       end,
     }
     use { "moll/vim-bbye" }
+
+    -- Status line plugin
+    use {
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      config = function()
+        require("config.lualine")
+      end,
+    }
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
