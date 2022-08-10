@@ -156,6 +156,15 @@ function M.setup()
       end,
     }
 
+    -- Motion plugin: Hop
+    use {
+      "phaazon/hop.nvim",
+      branch = "v2",
+      config = function()
+        require("config.hopstart")
+      end,
+    }
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require('packer').sync()

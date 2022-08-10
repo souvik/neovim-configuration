@@ -76,7 +76,13 @@ keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>
 keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>bl", "<cmd> lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 keymap("n", "<leader>L", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').grep_string({ cwd = utils.buffer_dir() })<cr>", opts)
+keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 
 -- NvimTree keymap
 keymap("n", "<leader>e", "<cmd>lua require('nvim-tree').toggle(true, true)<cr>", opts)
+
+-- Hop Keymaps
+keymap("", "f", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+keymap("", "F", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+keymap("", "t", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+keymap("", "T", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
