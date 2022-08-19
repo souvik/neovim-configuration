@@ -73,10 +73,11 @@ keymap("v", "p", '"_dP', opts)
 
 -- Telescope Keymaps
 keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer=true, only_cwd=true})<cr>", opts)
 keymap("n", "<leader>bl", "<cmd> lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 keymap("n", "<leader>L", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').live_grep({grep_open_file=true})<cr>", opts)
+keymap("n", "<leader>j", "<cmd>lua require('telescope.builtin').jumplist()<cr>", opts)
 
 -- NvimTree keymap
 keymap("n", "<leader>e", "<cmd>lua require('nvim-tree').toggle(true, true)<cr>", opts)

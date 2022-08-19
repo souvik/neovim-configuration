@@ -22,20 +22,20 @@ function M.setup()
   local function packer_init()
     local fn = vim.fn
 
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
       PACKER_BOOTSTRAP = fn.system({
-        'git',
-        'clone',
-        '--depth',
-        '1',
-        'https://github.com/wbthomason/packer.nvim',
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
         install_path
       })
-      print('Installing packer close and reopen NeoVIM')
+      print("Installing packer close and reopen NeoVIM")
       vim.cmd([[packadd packer.nvim]])
     end
-    vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
+    -- vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
   end
 
   -- Plugins
@@ -137,13 +137,19 @@ function M.setup()
     }
 
     -- Bufferline
+    -- use {
+    --   "akinsho/bufferline.nvim",
+    --   tag = "v2.*",
+    --   requires = { "kyazdani42/nvim-web-devicons" },
+    --   config = function()
+    --     require("config.bufferline")
+    --   end,
+    -- }
     use {
-      "akinsho/bufferline.nvim",
-      tag = "v2.*",
-      requires = { "kyazdani42/nvim-web-devicons" },
-      config = function()
-        require("config.bufferline")
-      end,
+      "romgrk/barbar.nvim",
+      config = function ()
+        require("config.barbar")
+      end
     }
     use { "moll/vim-bbye" }
 
@@ -167,9 +173,11 @@ function M.setup()
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
-      require('packer').sync()
+      require("packer").sync()
     end
   end
+
+  packer_init()
 
   -- Autocommand that reloads neovim whenever you save the plugins.lua file
   vim.cmd([[
@@ -178,8 +186,6 @@ function M.setup()
       autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
   ]])
-
-  packer_init()
 
   local status_ok, packer = pcall(require, "packer")
   if not status_ok then

@@ -83,11 +83,22 @@ telescope.setup {
     -- builtin picker
     buffers = {
       theme = "ivy",
+      only_cwd = true,
+      sort_lastused = true,
+      sort_mru = true,
       previewer = false
     },
     current_buffer_fuzzy_find = {
       theme = "ivy",
       previewer = false
+    },
+    jumplist = {
+      theme = "ivy",
+      fname_width = 80,
+      previewer = false
+    },
+    oldfiles = {
+      cwd_only = true
     }
   },
   extensions = {
