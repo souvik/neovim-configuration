@@ -72,18 +72,40 @@ keymap("n", "[<Space>", "O<Esc>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Telescope Keymaps
-keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer=true, only_cwd=true})<cr>", opts)
-keymap("n", "<leader>bl", "<cmd> lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
-keymap("n", "<leader>L", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>l", "<cmd>lua require('telescope.builtin').live_grep({grep_open_file=true})<cr>", opts)
-keymap("n", "<leader>j", "<cmd>lua require('telescope.builtin').jumplist()<cr>", opts)
+keymap("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "<Leader>b", "<Cmd>lua require('telescope.builtin').buffers({ignore_current_buffer=true, only_cwd=true})<CR>", opts)
+keymap("n", "<Leader>bl", "<Cmd> lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", opts)
+keymap("n", "<Leader>L", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("n", "<Leader>l", "<Cmd>lua require('telescope.builtin').live_grep({grep_open_file=true})<CR>", opts)
+keymap("n", "<Leader>j", "<Cmd>lua require('telescope.builtin').jumplist()<CR>", opts)
 
 -- NvimTree keymap
-keymap("n", "<leader>e", "<cmd>lua require('nvim-tree').toggle(true, true)<cr>", opts)
+keymap("n", "<Leader>e", "<Cmd>lua require('nvim-tree').toggle(true, true)<CR>", opts)
 
 -- Hop Keymaps
-keymap("", "f", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-keymap("", "F", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-keymap("", "t", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
-keymap("", "T", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+keymap("", "f", "<Cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<CR>", {})
+keymap("", "F", "<Cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<CR>", {})
+keymap("", "t", "<Cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<CR>", {})
+keymap("", "T", "<Cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<CR>", {})
+
+-- Barbar Keymaps
+-- Re-order to previous/next
+keymap('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+keymap('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+-- Goto buffer in position...
+keymap('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+keymap('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+keymap('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+keymap('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+keymap('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+keymap('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+keymap('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+keymap('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+keymap('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+keymap('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+-- Pin/unpin buffer
+keymap('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+-- Close buffer
+keymap("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+-- Magic buffer-picking mode
+keymap("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
