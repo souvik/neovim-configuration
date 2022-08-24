@@ -16,7 +16,9 @@ local options = {
   foldmethod = "indent",
   foldlevel = 2,
   listchars = { tab = " ", space = ".", eol = "" },
-  list = true
+  list = true,
+  termguicolors = true,
+  background = "dark"
 }
 
 for k, v in pairs(options) do

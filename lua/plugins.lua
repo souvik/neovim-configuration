@@ -171,6 +171,14 @@ function M.setup()
       end,
     }
 
+    -- Surround selections, stylishly
+    use {
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = function()
+        require("config.surround")
+      end
+    }
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()
