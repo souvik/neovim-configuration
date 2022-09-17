@@ -3,19 +3,24 @@ if not null_ls_status_ok then
 	return
 end
 
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+-- Sources at local
+local code_actions = null_ls.builtins.code_actions
 local formatting = null_ls.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-	debug = false,
-	sources = {
+  cmd = { "nvim" },
+  debug = false,
+  diagnostics_format = "[#{c}] #{m} (#{s})",
+  sources = {
+    code_actions.gitsigns,
+
     formatting.rubocop,
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		-- formatting.black.with({ extra_args = { "--fast" } }),
-		-- formatting.stylua,
+    formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+    -- formatting.black.with({ extra_args = { "--fast" } }),
+    -- formatting.stylua,
+
     diagnostics.rubocop,
     -- diagnostics.flake8
-	},
+  },
 })

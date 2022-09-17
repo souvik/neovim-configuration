@@ -59,6 +59,13 @@ function M.setup()
       end,
     }
 
+    use {
+      "sainnhe/sonokai",
+      config = function()
+        require("config.colorscheme")
+      end,
+    }
+
     -- Auto-completion plugins
     use {
       "hrsh7th/nvim-cmp",
