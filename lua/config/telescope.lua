@@ -1,4 +1,4 @@
-local status_ok, telescope = pcall(require, 'telescope')
+local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
   return
 end
@@ -113,8 +113,14 @@ telescope.setup {
       override_generic_sorter = true,
       orverride_file_sorter = true,
       case_mode = 'smart_case' -- Default: 'smart_case', ('ignore_case', 'respect_case')
+    },
+
+    file_browser = {
+      theme = "ivy",
+      hijack_netrw = true
     }
   },
 }
 
-telescope.load_extension('fzf')
+telescope.load_extension("fzf")
+telescope.load_extension("file_browser")
