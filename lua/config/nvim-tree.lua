@@ -55,7 +55,6 @@ nvim_tree.setup {
   },
   view = {
     width = 30,
-    height = 30,
     side = "left",
     adaptive_size = true,
     mappings = {
@@ -74,7 +73,7 @@ nvim_tree.setup {
 
 -- Setting the offset value for the tabline
 local nvim_tree_events = require("nvim-tree.events")
-local bufferline_state = require("bufferline.state")
+local bufferline_api = require("bufferline.api")
 
 
 local function get_tree_size()
@@ -82,13 +81,13 @@ local function get_tree_size()
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()
-  bufferline_state.set_offset(get_tree_size())
+  bufferline_api.set_offset(get_tree_size())
 end)
 
 nvim_tree_events.subscribe('Resize', function()
-  bufferline_state.set_offset(get_tree_size())
+  bufferline_api.set_offset(get_tree_size())
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
-  bufferline_state.set_offset(0)
+  bufferline_api.set_offset(0)
 end)
