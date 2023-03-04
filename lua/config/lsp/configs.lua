@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local lspconfig = require('lspconfig')
-local servers = { 'solargraph', 'jsonls', 'sumneko_lua' }
+local servers = { 'solargraph', 'jsonls', 'lua_ls' }
 
 lsp_installer.setup({
   ensure_installed = servers
